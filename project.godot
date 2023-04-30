@@ -10,9 +10,24 @@ config_version=5
 
 [application]
 
-config/name="LudumDare53"
+config/name="Unwanted Delivery"
+run/main_scene="res://Scenes/Main.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Quit="*res://Util/Quit.gd"
+Settings="*res://Util/Settings.gd"
+Audio="*res://Util/Audio.gd"
+Items="*res://Util/Items.gd"
+BattleInfo="*res://Util/BattleInfo.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="viewport"
 
 [rendering]
 

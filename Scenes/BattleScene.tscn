@@ -1,0 +1,247 @@
+[gd_scene load_steps=14 format=3 uid="uid://creetjn4qsay5"]
+
+[ext_resource type="Script" path="res://Scenes/BattleScene.gd" id="1_yqdoa"]
+[ext_resource type="Texture2D" uid="uid://c6x3juso6uvbp" path="res://Assets/Enemy.png" id="2_6f8u1"]
+[ext_resource type="Texture2D" uid="uid://b65w4expusvim" path="res://Assets/Player.png" id="3_ri46b"]
+[ext_resource type="Texture2D" uid="uid://d0e03hstncvws" path="res://Assets/Dice.png" id="4_0vmjb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u0yir"]
+bg_color = Color(0.258824, 0.188235, 0.14902, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_broqe"]
+atlas = ExtResource("4_0vmjb")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpy5s"]
+atlas = ExtResource("4_0vmjb")
+region = Rect2(0, 50, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdww6"]
+atlas = ExtResource("4_0vmjb")
+region = Rect2(0, 100, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4apq"]
+atlas = ExtResource("4_0vmjb")
+region = Rect2(0, 150, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndfk0"]
+atlas = ExtResource("4_0vmjb")
+region = Rect2(0, 200, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfhxa"]
+atlas = ExtResource("4_0vmjb")
+region = Rect2(0, 250, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i8c42"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_broqe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpy5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdww6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4apq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndfk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfhxa")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ilgm7"]
+bg_color = Color(0.709804, 0, 0, 1)
+
+[node name="BattleScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yqdoa")
+_main_path = "res://Scenes/Main.tscn"
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_u0yir")
+
+[node name="EnemyPreview" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 1045.0
+offset_right = 1281.0
+offset_bottom = 354.0
+texture = ExtResource("2_6f8u1")
+
+[node name="PlayerPreview" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 236.0
+offset_bottom = 354.0
+texture = ExtResource("3_ri46b")
+
+[node name="Tray" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 246.0
+offset_right = 1035.0
+offset_bottom = 354.0
+
+[node name="Dice" type="AnimatedSprite2D" parent="Tray"]
+position = Vector2(136, 96)
+scale = Vector2(2.76, 2.76)
+sprite_frames = SubResource("SpriteFrames_i8c42")
+
+[node name="Dice2" type="AnimatedSprite2D" parent="Tray"]
+position = Vector2(401, 95)
+scale = Vector2(2.76, 2.76)
+sprite_frames = SubResource("SpriteFrames_i8c42")
+
+[node name="Dice3" type="AnimatedSprite2D" parent="Tray"]
+position = Vector2(641, 96)
+scale = Vector2(2.76, 2.76)
+sprite_frames = SubResource("SpriteFrames_i8c42")
+
+[node name="Reroll" type="Button" parent="Tray"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -376.5
+offset_top = 84.0
+offset_right = -152.5
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.705882, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Reroll"
+
+[node name="Accept" type="Button" parent="Tray"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.5
+offset_top = 84.0
+offset_right = 125.5
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Accept"
+
+[node name="Cheat" type="Button" parent="Tray"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 210.5
+offset_top = 84.0
+offset_right = 380.5
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Cheat"
+
+[node name="Explain" type="Label" parent="."]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 604.0
+offset_right = 1270.0
+offset_bottom = 720.0
+theme_override_font_sizes/font_size = 20
+text = "When you accept a dice roll:  9 + {the number of non-surprised enemies}  will be subtracted from the sum of all 3 dice.
+The result is doubled and dealt as hp damage, if it's negative it's dealt to you, if positive it's dealt to the enemy.
+In short, try to get the highest dice sum possible. Hover over HP bars to see actual values"
+autowrap_mode = 3
+
+[node name="BattleLog" type="Label" parent="."]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 428.0
+offset_right = 1270.0
+offset_bottom = 517.0
+theme_override_font_sizes/font_size = 24
+text = "The Battle Begins..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="SumLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 171.0
+offset_right = 1021.0
+offset_bottom = 251.0
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+
+[node name="BattleStats" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 260.0
+offset_top = 519.0
+offset_right = 1021.0
+offset_bottom = 599.0
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="PlayerHP" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 368.0
+offset_right = 616.0
+offset_bottom = 421.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_ilgm7")
+max_value = 30.0
+step = 1.0
+value = 30.0
+
+[node name="EnemyHP" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 657.0
+offset_top = 368.0
+offset_right = 1269.0
+offset_bottom = 421.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_ilgm7")
+max_value = 1.0
+step = 1.0
+
+[node name="DoneButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 484.0
+offset_top = 524.0
+offset_right = 786.0
+offset_bottom = 594.0
+theme_override_font_sizes/font_size = 30
+text = "Hi"
+
+[connection signal="pressed" from="Tray/Reroll" to="." method="_on_reroll_pressed"]
+[connection signal="pressed" from="Tray/Accept" to="." method="_on_accept_pressed"]
+[connection signal="pressed" from="Tray/Cheat" to="." method="_on_cheat_pressed"]
+[connection signal="pressed" from="DoneButton" to="." method="_on_done_button_pressed"]
